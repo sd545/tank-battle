@@ -21,12 +21,24 @@
 
 ## 安装到手机桌面（PWA）
 
-游戏是标准 PWA（含 manifest、Service Worker 与全套图标），部署到任意静态托管后：
+游戏是标准 PWA（含 manifest、Service Worker 与全套图标），发布到任意静态托管后：
 
-1. Android：用 Chrome 打开链接 → 浏览器菜单 →「安装应用 / 添加到主屏幕」
+1. Android：用 Chrome 打开链接 → 右上角菜单 →「安装应用 / 添加到主屏幕」
 2. iOS：用 Safari 打开 → 分享 →「添加到主屏幕」
 
-安装后全屏运行、断网可玩。
+安装后全屏运行、断网可玩，也可通过 GitHub Pages 直接托管。
+
+## Android APK
+
+`android/` 目录是把游戏用 WebView 壳打包成原生 APK 的完整工程（免 Gradle），
+构建方法与签名说明见 [android/README.md](android/README.md)。简版：
+
+```bash
+export ANDROID_HOME=/path/to/android-sdk   # 需 platforms/android-34 与 build-tools/34.0.0
+bash android/build_apk.sh                  # 产物 release/tank-battle.apk，约 120 KB
+```
+
+要求 Android 7.0+，完全离线运行，存档保存在手机本地。
 
 ## 技术
 
@@ -43,18 +55,6 @@ npm install
 npm run dev      # 开发预览
 npm run build    # 产物输出到 dist/
 ```
-
-PWA 图标由脚本代码生成（无需提交二进制文件）：
-
-```bash
-pip install pillow
-python3 scripts/make_icons.py   # 生成到 public/icons/
-```
-
-## 部署到 GitHub Pages
-
-仓库已附带 `.github/workflows/deploy.yml`：推送到 `main` 分支即自动构建并发布到 Pages。
-首次使用需在仓库 Settings → Pages 中将 Source 设为「GitHub Actions」。
 
 ## 许可
 

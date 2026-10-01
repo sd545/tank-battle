@@ -3,3 +3,7 @@ dist
 *.log
 .DS_Store
 info.md
+release/
+android/build/
+android/assets/
+android/ecj.jar
