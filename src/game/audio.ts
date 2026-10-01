@@ -117,7 +117,7 @@ class Sfx {
     notes.forEach((f, i) => this.tone(f, f, 0.12, 'square', 0.16, i * 0.11));
   }
   levelClear() {
-    const notes = [523, 659, 784, 1047, 1319);
+    const notes = [523, 659, 784, 1047, 1319];
     notes.forEach((f, i) => this.tone(f, f, 0.14, 'square', 0.16, i * 0.1));
   }
   gameOver() {
